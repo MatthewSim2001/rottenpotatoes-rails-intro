@@ -66,3 +66,12 @@ Cannot render console from 2607:f140:400:a011:e5da:fc93:a943:c87c! Allowed netwo
 
 Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 2607:f140:400:a011:e5da:fc93:a943:c87c at 2022-10-01 02:39:35 +0000
 Cannot render console from 2607:f140:400:a011:e5da:fc93:a943:c87c! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/" for 2607:f140:400:a011:e5da:fc93:a943:c87c at 2022-10-01 02:48:03 +0000
+Cannot render console from 2607:f140:400:a011:e5da:fc93:a943:c87c! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MoviesController#index as HTML
+  [1m[36mMovie Load (0.2ms)[0m  [1mSELECT "movies".* FROM "movies"[0m
+  Rendered movies/index.html.erb within layouts/application (3.6ms)
+  Rendered layouts/_flash.erb (0.1ms)
+Completed 200 OK in 17ms (Views: 16.6ms | ActiveRecord: 0.2ms)
