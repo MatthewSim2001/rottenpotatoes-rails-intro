@@ -10,11 +10,9 @@ class MoviesController < ApplicationController
       @all_ratings = Movie.all_ratings
 
       @ratings_to_show = []
-      if params[:ratings].nil? == true and params[:home].nil?
-        session.delete(:ratings)
-      end
+      # if params[:ratings].nil?
+      #   session.delete(:ratings)
       if params[:ratings].nil? == false
-
         @ratings_to_show = params[:ratings].keys
         session[:ratings] = params[:ratings]
       elsif params[:ratings].nil? == true and session[:ratings].nil? == false
