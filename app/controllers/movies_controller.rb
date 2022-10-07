@@ -12,7 +12,30 @@ class MoviesController < ApplicationController
       if params[:ratings].nil? == false
         @ratings_to_show = params[:ratings].keys
       end
+ 
+      
+      
       @movies = Movie.with_ratings(@ratings_to_show)
+
+      if params[:sort].nil? == false
+        session[:sort] = params[:sort]
+      end
+
+      if params[:sort] == "title"
+        @title_bg = "hilite bg-primary"
+        @movies = @movies.order(:title)
+          
+      end
+      if params[:sort] == "release"
+        @rd_bg = "hilite bg-primary"
+        @movies = @movies.order(:release_date)
+      end
+
+      if params[:filtered].nil? == false
+        v = params[:filtered].keys
+        @movies = @movies.with_ratings(v)
+      end
+
     end
   
     def new
