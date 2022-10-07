@@ -8,9 +8,17 @@ class MoviesController < ApplicationController
   
     def index
       @all_ratings = Movie.all_ratings
+
       @ratings_to_show = []
+      if params[:ratings].nil? == true and params[:home].nil?
+        session.delete(:ratings)
+      end
       if params[:ratings].nil? == false
+
         @ratings_to_show = params[:ratings].keys
+        session[:ratings] = params[:ratings]
+      elsif params[:ratings].nil? == true and session[:ratings].nil? == false
+        @ratings_to_show = session[:ratings].keys
       end
  
       
@@ -21,20 +29,20 @@ class MoviesController < ApplicationController
         session[:sort] = params[:sort]
       end
 
-      if params[:sort] == "title"
+      if session[:sort] == "title"
         @title_bg = "hilite bg-primary"
         @movies = @movies.order(:title)
           
       end
-      if params[:sort] == "release"
+      if session[:sort] == "release"
         @rd_bg = "hilite bg-primary"
         @movies = @movies.order(:release_date)
       end
 
-      if params[:filtered].nil? == false
-        v = params[:filtered].keys
-        @movies = @movies.with_ratings(v)
-      end
+      
+
+
+ 
 
     end
   
